@@ -1,7 +1,7 @@
-# ResQ: A Trust-Based System That Never Leaves You Stranded
+# Resq: A Trust-Based System That Never Leaves You Stranded
 
 ## Overview
-ResQ is an innovative payment solution that allows friends to support each other financially in times of need. The system creates a safety net by enabling trusted users to bill their friends' cards when they're in a bind, while maintaining transparency and control.
+Resq is an innovative payment solution that allows friends to support each other financially in times of need. The system creates a safety net by enabling trusted users to bill their friends' cards when they're in a bind, while maintaining transparency and control.
 
 ## Core Features
 
@@ -33,83 +33,27 @@ ResQ is an innovative payment solution that allows friends to support each other
 
 ## Use Cases
 
-- **Transportation emergencies**: When you're stranded without funds for a ride home
-- **Travel situations**: When your card is declined while abroad
+- **Transportation emergencies**: When you're stranded without funds for a ride homed
 - **Forgotten wallet**: When you've left your payment methods at home
 - **Temporary cash flow issues**: When waiting for a paycheck to clear
 
 ## Tech Stack
 
 ### Frontend
-- **Mobile App**: React Native for cross-platform support (iOS & Android)
-- **Web App**: React.js with TypeScript
-- **UI Framework**: Material UI with custom theming
-- **State Management**: Redux or Context API
-- **API Integration**: Axios for REST API communication
+- **Web App**: React.js, TypeScript, TailwindCss, shadcn/ui, Tanstack Query, React Router
 
 ### Backend
-- **Server**: Node.js with Express.js
-- **API Architecture**: RESTful API with GraphQL option
-- **Authentication**: JWT (JSON Web Tokens) with OAuth 2.0
-- **Database**: 
-  - MongoDB for user profiles and relationships
-  - PostgreSQL for transaction records
-- **Caching**: Redis for performance optimization
+- **Server**: Fastify, PostgreSQL, Prisma
+- 
+### Deployment
+- **Hosting**: Vercel(Client), Render(Server & DB)
 
 ### Payment Processing
-- **Payment Gateway**: Stripe API for card processing
-- **Banking Integration**: Plaid API for account linking
-- **Fraud Detection**: Machine learning algorithms for unusual activity detection
-- **Compliance**: PCI DSS Level 1 certification
-
-### Security
-- **Encryption**: AES-256 for data at rest, TLS 1.3 for data in transit
-- **Authentication**: 2FA (Two-Factor Authentication)
-- **Privacy**: GDPR and CCPA compliance built-in
-- **Audit Logging**: Comprehensive activity logging for security monitoring
-
-### DevOps
-- **Hosting**: AWS (EC2, Lambda, S3)
-- **Containerization**: Docker with Kubernetes
-- **CI/CD**: GitHub Actions or CircleCI
-- **Monitoring**: New Relic and CloudWatch
-- **Error Tracking**: Sentry
-
-### Communication
-- **Email Service**: SendGrid for transactional emails
-- **Push Notifications**: Firebase Cloud Messaging
-- **SMS Gateway**: Twilio for critical alerts
+- Paystack API for card processing and account linking
 
 ## Privacy & Security Considerations
-
 ResQ prioritizes user security and financial privacy with:
 - End-to-end encryption for sensitive data
 - Strict permission-based access controls
-- Regular security audits and penetration testing
-- Compliance with financial regulations
-- Transparent data usage policies
-- Option for biometric verification for sensitive actions
 
-## Roadmap
 
-### Phase 1: MVP Launch
-- Core billing functionality 
-- Basic trust relationships
-- Email notifications
-- Essential security features
-
-### Phase 2: Enhanced Features
-- Advanced limit setting
-- Group trust circles
-- Expense categorization
-- Receipt capture
-
-### Phase 3: Expansion
-- International support
-- Business accounts
-- Integration with financial wellness tools
-- AI-powered spending insights
-
-## Get Started
-
-Join our waitlist at www.resq.app to be notified when we launch in your area!
