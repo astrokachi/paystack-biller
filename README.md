@@ -44,7 +44,7 @@ Resq is an innovative payment solution that allows friends to support each other
 
 ### Backend
 - **Server**: Fastify, PostgreSQL, Prisma
-- 
+
 ### Deployment
 - **Hosting**: Vercel(Client), Render(Server & DB)
 
