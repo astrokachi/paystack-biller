@@ -30,6 +30,7 @@ Resq is an innovative payment solution that allows friends to support each other
 3. **Use in emergencies**: When stranded, request funds from a trusted friend
 4. **Stay informed**: Both parties receive detailed transaction confirmations
 5. **Manage later**: Settle debts through the app or via external means
+6. **Add interest**: Specify an interest rate for payback
 
 ## Use Cases
 
