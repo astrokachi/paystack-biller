@@ -61,6 +61,9 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
       gender,
       coverPhoto,
     };
+    await fetch('localhost:3002', {
+      method: 'GET',
+    });
 
     return done(null, user);
   }
