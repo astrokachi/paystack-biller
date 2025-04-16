@@ -1,13 +1,27 @@
-import { Controller, Get, Req, Res } from '@nestjs/common';
-import { RouteConfig } from '@nestjs/platform-fastify';
-import { Response, Request } from 'express';
+import {
+  Controller,
+  Get,
+  Req,
+  Res,
+  // Req,
+  // Res,
+  UseGuards,
+} from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
+import { FastifyReply, FastifyRequest } from 'fastify';
+// import { FastifyReply, FastifyRequest } from 'fastify';
 
 @Controller('auth')
 export class AuthController {
-  @RouteConfig({ msg: 'hello world' })
   @Get()
-  index(@Req() req: Request, @Res() res: Response) {
-    console.log(req);
-    return res.send({ msg: 'hello world' });
+  @UseGuards(AuthGuard('google'))
+  googleAuth() {}
+
+  @Get('google/callback')
+  @UseGuards(AuthGuard('google'))
+  googleAuthCallback(@Req() req: FastifyRequest, @Res() res: FastifyReply) {
+    // const {accessToken, refreshToken} =
+
+    return res.redirect('/');
   }
 }

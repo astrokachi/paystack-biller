@@ -12,19 +12,7 @@ export class User {
   lastName: string;
 
   @Column()
-  displayName: string;
-
-  @Column()
-  birthday: string;
-
-  @Column()
   email: string;
-
-  @Column()
-  gender: string;
-
-  @Column()
-  picture: string;
 
   @Column()
   coverPhoto: string;
