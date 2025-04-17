@@ -20,8 +20,6 @@ export class AuthController {
   @Get('google/callback')
   @UseGuards(AuthGuard('google'))
   googleAuthCallback(@Req() req: FastifyRequest, @Res() res: FastifyReply) {
-    // const {accessToken, refreshToken} =
-
     return res.redirect('/');
   }
 }
