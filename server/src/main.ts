@@ -7,17 +7,15 @@ import 'dotenv/config';
 import 'reflect-metadata';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
-import fastifyCookie from '@fastify/cookie';
+// import fastifyCookie from '@fastify/cookie';
 import fastifySecureSession from '@fastify/secure-session';
 
 async function bootstrap() {
   const PORT = process.env.PORT ?? 3000;
-  const fastifyAdapter = new FastifyAdapter();
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
-    fastifyAdapter,
+    new FastifyAdapter(),
   );
-  await app.register(fastifyCookie);
   await app.register(fastifySecureSession, {
     secret: process.env.SESSION_SECRET!,
     salt: process.env.SESSION_SALT!,
