@@ -11,6 +11,8 @@ import { UserModule } from './user/user.module';
       type: 'postgres',
       url: process.env.DB_SERVER as string,
       ssl: true,
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      synchronize: process.env.NODE_ENV !== 'production',
     }),
     AuthModule,
     UserModule,

@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { FastifyRequest } from 'fastify';
 
-interface User {
+export interface User {
   firstName: string;
   lastName: string;
   email: string;
@@ -9,7 +9,7 @@ interface User {
   accessToken: string;
 }
 
-interface Tokens {
+export interface Tokens {
   access_token: string;
   refresh_token?: string;
   scope?: string;

@@ -7,7 +7,7 @@ import 'dotenv/config';
 import 'reflect-metadata';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
-// import fastifyCookie from '@fastify/cookie';
+import fastifyCookie from '@fastify/cookie';
 import fastifySecureSession from '@fastify/secure-session';
 
 async function bootstrap() {
@@ -16,6 +16,7 @@ async function bootstrap() {
     AppModule,
     new FastifyAdapter(),
   );
+  await app.register(fastifyCookie);
   await app.register(fastifySecureSession, {
     secret: process.env.SESSION_SECRET!,
     salt: process.env.SESSION_SALT!,
