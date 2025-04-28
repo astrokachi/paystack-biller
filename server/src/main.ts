@@ -18,9 +18,9 @@ async function bootstrap() {
   );
   await app.register(fastifyCookie);
   await app.register(fastifySecureSession, {
+    sessionName: process.env.SESSION_NAME!,
     secret: process.env.SESSION_SECRET!,
     salt: process.env.SESSION_SALT!,
-    cookieName: 'sessionId',
     cookie: {
       secure: process.env.NODE_ENV === 'production',
       httpOnly: true,

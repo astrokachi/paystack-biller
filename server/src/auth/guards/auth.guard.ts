@@ -9,7 +9,7 @@ import { GoogleAuthService } from '../config/google.auth.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-  constructor(private googleAuthService: GoogleAuthService) { }
+  constructor(private googleAuthService: GoogleAuthService) {}
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
     const request: FastifyRequest = context.switchToHttp().getRequest();
@@ -24,6 +24,7 @@ export class AuthGuard implements CanActivate {
       throw new UnauthorizedException('Invalid access token');
     }
 
+    console.log(request.session.user);
     if (request.session && request.session.user) {
       return true;
     }

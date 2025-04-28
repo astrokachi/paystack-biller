@@ -1,6 +1,6 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { FastifyRequest } from 'fastify';
-
+import fastifySecureSession from '@fastify/secure-session';
 export interface User {
   firstName: string;
   lastName: string;
