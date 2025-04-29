@@ -23,7 +23,7 @@ export class AuthService {
     }
 
     const accessToken = token.access_token;
-    console.log(userData, token);
+    // console.log(userData, token);
     const existingUser = await this.userRepository.findOne({
       where: {
         email: email,

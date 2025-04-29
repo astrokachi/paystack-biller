@@ -35,16 +35,13 @@ export class AuthController {
       tokensAndUserInfo.user,
       tokensAndUserInfo.tokens,
     );
-
     if (user) {
-      req.session.user = user;
-      console.log(req.session.user);
+      req.session.set('user', user);
       return res.status(HttpStatus.OK).send({
         msg: 'User added successfully',
         data: user,
       });
     }
-
     return null;
   }
 
