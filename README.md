@@ -44,7 +44,7 @@ Resq is an innovative payment solution that allows friends to support each other
 - **Web App**: React.js, TypeScript, TailwindCss, shadcn/ui, Tanstack Query, React Router
 
 ### Backend
-- **Server**: Fastify, PostgreSQL, Prisma
+- **Server**: Nestjs, PostgreSQL, Prisma
 
 ### Deployment
 - **Hosting**: Vercel(Client), Render(Server & DB)
