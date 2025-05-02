@@ -1,13 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { FastifyRequest } from 'fastify';
 import fastifySecureSession from '@fastify/secure-session';
-export interface User {
-  firstName: string;
-  lastName: string;
-  email: string;
-  coverPhoto: string;
-  accessToken: string;
-}
+import { User } from './user/entities/user.entity';
 
 export interface Tokens {
   access_token: string;
@@ -19,7 +13,7 @@ export interface Tokens {
 }
 
 interface CustomSessionData {
-  user?: User;
+  user?: Partial<User>;
   tokens?: Tokens;
   authenticated: boolean;
 }
