@@ -1,3 +1,5 @@
 import { HttpException } from '@nestjs/common';
 
-class GoogleApiException extends HttpException {}
+export class GoogleApiException extends HttpException {
+  // add custom error if needed
+}
