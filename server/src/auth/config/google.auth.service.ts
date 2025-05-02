@@ -26,14 +26,14 @@ export class GoogleAuthService {
   async getTokensAndUserInfo(code: string) {
     // exchange code returned from auth url for token and user profile
     const { tokens } = await this.googleOauth2.getToken(code);
-    this.googleOauth2.setCredentials({ access_token: tokens.access_token });
-    const oauth2 = google.oauth2({ version: 'v2', auth: this.googleOauth2 });
-    const userInfo = await oauth2.userinfo.get();
-
-    return {
-      tokens,
-      user: userInfo,
-    };
+    if (tokens.access_token) {
+      const userInfo = await this.verifyAccessToken(tokens.access_token);
+      return {
+        tokens,
+        user: userInfo,
+      };
+    }
+    return null;
   }
 
   // verify access token and make sure it's not expired
@@ -41,7 +41,9 @@ export class GoogleAuthService {
     try {
       this.googleOauth2.setCredentials({ access_token: token });
       const oauth2 = google.oauth2({ version: 'v2', auth: this.googleOauth2 });
+      console.log(await oauth2.userinfo.get(), '---------> verify');
       const userInfo = await oauth2.userinfo.get();
+      console.log(userInfo);
       return userInfo;
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (_) {

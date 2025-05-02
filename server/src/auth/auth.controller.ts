@@ -6,6 +6,7 @@ import {
   Res,
   Req,
   UseGuards,
+  UnauthorizedException,
 } from '@nestjs/common';
 import { RedirectGuard } from './guards/redirect.guard';
 import { FastifyReply, FastifyRequest } from 'fastify';
@@ -31,10 +32,16 @@ export class AuthController {
   ) {
     const tokensAndUserInfo =
       await this.googleAuthService.getTokensAndUserInfo(code);
+
+    if (!tokensAndUserInfo || !tokensAndUserInfo.user) {
+      throw new UnauthorizedException('User not authenticated');
+    }
+
     const user = await this.authService.saveUser(
       tokensAndUserInfo.user,
       tokensAndUserInfo.tokens,
     );
+
     if (user) {
       req.session.set('user', user);
       return res.status(HttpStatus.OK).send({
@@ -53,6 +60,7 @@ export class AuthController {
       coverPhoto: 'https://example.com/cover-photo.jpg',
       firstName: 'John',
       lastName: 'Doe',
+      id: 2,
     });
     return res.status(HttpStatus.OK).send({ data: req.session.get('user') });
   }
