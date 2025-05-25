@@ -8,6 +8,7 @@ import { User } from '@/user/entities/user.entity';
 import { Transaction } from './entities/transaction.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
+import { TransactionStatus } from './enum/transaction.enum';
 
 @Injectable()
 export class TransactionService {
@@ -41,8 +42,8 @@ export class TransactionService {
       const transactionPayload = {
         user,
         amount,
-        status: 'pending',
-        reference,
+        status: TransactionStatus.PENDING,
+        reference
       };
 
       const newTransaction =
